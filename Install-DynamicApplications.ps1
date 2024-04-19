@@ -26,9 +26,9 @@
 #>
 # Script Variables
 $Script:Debug = $True # Be sure to set this to False in production environment
-$UserPassword = 'Isaiah@2014' # use service account password
-$UserName = 'viamonstra\jyoakum' # use domain\serviceaccount
-$SiteServerFQDN = 'cm01.corp.viamonstra.com' # this is in the form of servername.domain.com
+$UserPassword = 'PASSWORD' # use service account password
+$UserName = 'domain\username' # use domain\serviceaccount
+$SiteServerFQDN = 'FQDN of site server' # this is in the form of servername.domain.com
 
 # Create the Array for storing all the applications
 $Applications = [System.Collections.ArrayList]::new()
