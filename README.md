@@ -1,4 +1,4 @@
-# InstallingDynamicApplicationsThroughTaskSequence
+# Installing Dynamic Applications Through Task Sequence
 Dynamically Install Applications using the ConfigMgr Administration Service During a Task Sequence 
 
 In this blog post, I am going to show you how to leverage the ConfigMgr administration service to retrieve all the available applications in your environment and use that list to build a dynamic variable list for applications to be installed. Where this is beneficial is when you have multiple of the same applications in your environment, and you want to be able to install the latest version of that application. 
@@ -30,34 +30,29 @@ Modify line 28 on your script and set Debug to $false
 In your Task Sequence, add a new step above your “Install Applications” step that Runs a PowerShell Script 
 
 Check the radio button that says “Enter a PowerShell script” 
-A screenshot of a computer
-
-Description automatically generated 
+![EnterPowerShellScript](https://github.com/johnyoakum/InstallingDynamicApplicationsThroughTaskSequence/assets/17698593/1807690d-41e3-49ce-a5c7-9e4c351e0616)
 
 Click the Add Script button 
 
 Copy and paste your code into the box pops up and click OK 
-A screen shot of a computer
+![PowershellScript](https://github.com/johnyoakum/InstallingDynamicApplicationsThroughTaskSequence/assets/17698593/1b89e334-adc4-4c3f-a232-ce8c0efd645e)
 
-Description automatically generated 
+
 
 Change the PowerShell execution policy to “Bypass” 
-A screen shot of a computer
-
-Description automatically generated 
+![ExecutionPolicy](https://github.com/johnyoakum/InstallingDynamicApplicationsThroughTaskSequence/assets/17698593/6191e50f-44f4-41d1-832a-2b07937a34c5)
 
 Now click over to your “Install Applications” step 
 
 Select the radio button for “Install applications according to dynamic variable list 
-A screenshot of a computer
-
-Description automatically generated 
+![DynamicAppChoice](https://github.com/johnyoakum/InstallingDynamicApplicationsThroughTaskSequence/assets/17698593/aeb12ddf-7d33-4a33-bddc-6dee9b05a429)
 
 In the “Base variable name” section, enter “XApplications” 
-A close-up of a computer screen
-
-Description automatically generated 
+![BaseVariable](https://github.com/johnyoakum/InstallingDynamicApplicationsThroughTaskSequence/assets/17698593/13045ae5-7944-4e16-9cfd-cfca280221e7)
 
 Click OK on the Task Sequence editor and you are good to go 
 
 As you can imagine, leveraging this process can save you time from having to go in and modify every task sequence and manually adding in the applications one at a time. Now, there is one caveat to all of this that you need to be aware of. All your applications will need to have a check box checked on them. It is found on the Application Properties and it is called “Allow this application to be installed from the Install Application task sequence action without being deployed”. 
+![ApplicationAvailability](https://github.com/johnyoakum/InstallingDynamicApplicationsThroughTaskSequence/assets/17698593/30e69aa6-ad99-4e49-a250-acfad8ec0471)
+
+In conclusion, as you can imagine, leveraging this process can save you time from having to go in and modify every task sequence and manually adding in the applications one at a time. Now, there is one caveat to all of this that you need to be aware of. All your applications will need to have a check box checked on them. It is found on the Application Properties and it is called “Allow this application to be installed from the Install Application task sequence action without being deployed”.
